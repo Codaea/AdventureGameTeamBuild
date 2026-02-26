@@ -1,3 +1,9 @@
+"""
+Function: create_health
+Description: Creates a random initial health value between 50 and 150.
+Author: Tom
+"""
+
 from random import randint
 def create_health() -> int:
     health = randint(50, 150)
