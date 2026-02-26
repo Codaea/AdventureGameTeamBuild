@@ -32,5 +32,3 @@ def forest_attack(health):
         print("The jagged fangs tore into your throat!\nThe wolves gorge themselves on your lifeless corpse.")
 
     return health
-
-
