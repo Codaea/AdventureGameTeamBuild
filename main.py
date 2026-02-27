@@ -17,18 +17,18 @@
 import random
 import os
 
-# ----------------------------------------------------------
+# ------------------------------------------------------------------------
 # Essential Functions
-# ----------------------------------------------------------
+# ------------------------------------------------------------------------
 from essential.create_health import create_health       # by Tom
 from essential.create_gold import create_gold           # by Nate
 from essential.choose_title import choose_title         # by Lu
 from essential.validate_choice import validate_choice   # by B
 from essential.status_report import status_report       # by Calli
 
-# ----------------------------------------------------------
+# ------------------------------------------------------------------------
 # Reputation Functions
-# ----------------------------------------------------------
+# ------------------------------------------------------------------------
 
 from reputation.knight_promotion import knight_promotion 
 from reputation.secret_path import secret_path           # by Kate
@@ -37,9 +37,9 @@ from reputation.magical_training import magical_training
 from reputation.royal_favor import royal_favor
 from reputation.secret_talisman import secret_talisman
 
-# ----------------------------------------------------------
+# ------------------------------------------------------------------------
 # Encounter Functions
-# ----------------------------------------------------------
+# ------------------------------------------------------------------------
 
 from encounter.forest_attack import forest_attack        # by John Michael
 from encounter.river_crossing import river_crossing
@@ -52,9 +52,9 @@ from encounter.hidden_pond import hidden_pond
 from encounter.ambush import ambush
 from encounter.healing_herbs import healing_herbs
 
-# ----------------------------------------------------------
+# ------------------------------------------------------------------------
 # Wealth Functions
-# ----------------------------------------------------------
+# ------------------------------------------------------------------------
 
 from wealth.find_treasure import find_treasure
 from wealth.bandit_ambush import bandit_ambush
@@ -67,9 +67,9 @@ from wealth.treasure_map import treasure_map
 from wealth.lottery import lottery               # by Alex
 
 
-# ----------------------
+# ------------------------------------------------------------------------
 # MAIN GAME
-# ----------------------
+# ------------------------------------------------------------------------
 
 def main():
     # --- Clear screen ---
@@ -80,21 +80,6 @@ def main():
     health = create_health()
     gold = create_gold()
     title = choose_title()
-
-    # --- Function lists in reputation, encounter, and wealth categories ---
-    title_functions = [
-        knight_promotion, secret_path, lost_map,
-        magical_training, royal_favor, secret_talisman
-    ]
-    health_functions = [
-        forest_attack, river_crossing, mystical_potion, hidden_trap,
-        rest_inn, training_session, haunted_forest, hidden_pond,
-        ambush, healing_herbs
-    ]
-    gold_functions = [
-        find_treasure, bandit_ambush, merchant_sale, find_gem,
-        duel_knight, gold_mine, cursed_coin, treasure_map, lottery
-    ]
 
     # --- Game loop ---
     game_active = True
@@ -119,26 +104,97 @@ def main():
         os.system('cls' if os.name == 'nt' else 'clear')
         print ("The adventure continues!\n")
 
+
         # --- Run random scenario from chosen category ---
         # --- Reputation ---
         if choice == "1":
-            func = random.choice(title_functions)
-            title = func(title)
+            rep_choice = random.randint(1, 6)
 
-        # --- Encounter: functions require 1 OR 2 arguments ---
-        elif choice == "2":
-            func = random.choice(health_functions)
-            if func.__name__ in ["rest_inn"]:
-                health = func(health, gold)
-            elif func.__name__ in ["rest_inn", "training_session"]:
-                health = func(health, title)
+            if rep_choice == 1:
+               title = knight_promotion(title)
+
+            elif rep_choice == 2:
+               title = secret_path(title)
+
+            elif rep_choice == 3:
+               title = lost_map(title)
+
+            elif rep_choice == 4:
+               title = magical_training(title)
+
+            elif rep_choice == 5:
+               title = royal_favor(title)
+
             else:
-                health = func(health)
+               title = secret_talisman(title)
+
+
+        # --- Encounter ---
+        elif choice == "2":
+            encounter_choice = random.randint(1, 10)
+
+            if encounter_choice == 1:
+               health = rest_inn(health, gold)
+
+            elif encounter_choice == 2:
+               health = training_session(health, title)
+
+            elif encounter_choice == 3:
+               health = forest_attack(health)
+
+            elif encounter_choice == 4:
+               health = river_crossing(health)
+
+            elif encounter_choice == 5: 
+               health = mystical_potion(health)
+
+            elif encounter_choice == 6:
+               health = hidden_trap(health)
+
+            elif encounter_choice == 7:
+               health = haunted_forest(health)
+
+            elif encounter_choice == 8:
+               health = hidden_pond(health)
+
+            elif encounter_choice == 9:
+               health = ambush(health)
+
+            else:
+               health = healing_herbs(health)
+
 
         # --- Wealth ---
         elif choice == "3":
-            func = random.choice(gold_functions)
-            gold = func(gold)
+            gold_choice = random.randint(1, 9)
+
+            if gold_choice == 1:
+               gold = find_treasure(gold)
+
+            elif gold_choice == 2:
+               gold = bandit_ambush(gold)
+
+            elif gold_choice == 3:
+               gold = merchant_sale(gold)
+
+            elif gold_choice == 4:
+               gold = find_gem(gold)
+
+            elif gold_choice == 5:
+               gold = duel_knight(gold)
+
+            elif gold_choice == 6:
+               gold = gold_mine(gold)
+
+            elif gold_choice == 7:
+               gold = cursed_coin(gold)
+
+            elif gold_choice == 8:
+               gold = treasure_map(gold)
+
+            else:
+               gold = lottery(gold)
+
 
         # --- Quit ---
         else:
