@@ -50,7 +50,7 @@ from encounter.training_session import training_session
 from encounter.haunted_forest import haunted_forest
 from encounter.hidden_pond import hidden_pond
 from encounter.ambush import ambush
-from encounter.healing_herbs import healing_herbs
+from encounter.healing_herbs import healing_herbs        # by Tory
 
 # ------------------------------------------------------------------------
 # Wealth Functions
@@ -59,12 +59,12 @@ from encounter.healing_herbs import healing_herbs
 from wealth.find_treasure import find_treasure
 from wealth.bandit_ambush import bandit_ambush
 from wealth.merchant_sale import merchant_sale
-from wealth.find_gem import find_gem             # by Dario
+from wealth.find_gem import find_gem                    # by Dario
 from wealth.duel_knight import duel_knight
 from wealth.gold_mine import gold_mine
 from wealth.cursed_coin import cursed_coin
 from wealth.treasure_map import treasure_map
-from wealth.lottery import lottery               # by Alex
+from wealth.lottery import lottery                      # by Alex
 
 
 # ------------------------------------------------------------------------
