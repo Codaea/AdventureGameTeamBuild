@@ -56,7 +56,7 @@ from encounter.healing_herbs import healing_herbs        # by Tory
 # Wealth Functions
 # ------------------------------------------------------------------------
 
-from wealth.find_treasure import find_treasure
+from wealth.find_treasure import find_treasure          # by Torin
 from wealth.bandit_ambush import bandit_ambush
 from wealth.merchant_sale import merchant_sale
 from wealth.find_gem import find_gem                    # by Dario
