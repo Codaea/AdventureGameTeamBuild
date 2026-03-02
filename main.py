@@ -49,7 +49,7 @@ from encounter.rest_inn import rest_inn                  # by Carson
 from encounter.training_session import training_session
 from encounter.haunted_forest import haunted_forest
 from encounter.hidden_pond import hidden_pond
-from encounter.ambush import ambush
+from encounter.ambush import ambush                      # By Coda
 from encounter.healing_herbs import healing_herbs        # by Tory
 
 # ------------------------------------------------------------------------
